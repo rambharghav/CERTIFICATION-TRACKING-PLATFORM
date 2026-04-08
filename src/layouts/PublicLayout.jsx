@@ -176,7 +176,7 @@ function PublicLayout() {
             </span>
 
             <span className="top-email">
-              2400031810cse4@gmail.com
+              2400031064@kluniversity.in
             </span>
 
           </div>
