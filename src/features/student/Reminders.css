@@ -1,0 +1,104 @@
+.reminders-page {
+  padding: 40px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.reminders-header {
+  margin-bottom: 40px;
+}
+
+.reminders-header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  margin-bottom: 8px;
+}
+
+.reminders-header p {
+  color: #64748b;
+  font-size: 16px;
+}
+
+/* List */
+.reminder-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+/* Card */
+.reminder-card {
+  background: white;
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f1f5f9;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reminder-card:hover {
+  transform: translateY(-4px);
+}
+
+.reminder-header-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #6366f1;
+}
+
+.reminder-header-row h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.reminder-card .issuer {
+  font-weight: 600;
+  color: #6366f1;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.reminder-card .reminder-date,
+.reminder-card .expiry-date {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.reminder-card .reminder-action {
+  background: #fff7ed;
+  color: #c2410c;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #ffedd5;
+  margin-top: auto;
+}
+
+.empty-state {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 60px;
+  background: white;
+  border-radius: 24px;
+  border: 1px dashed #e2e8f0;
+  color: #64748b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .reminders-page { padding: 20px; }
+  .reminder-list { grid-template-columns: 1fr; }
+}

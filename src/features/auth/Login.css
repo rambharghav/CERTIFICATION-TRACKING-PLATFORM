@@ -1,0 +1,558 @@
+/* 
+============================================================
+   CERTIFYME - PREMIUM LOGIN SYSTEM (VIDPRO ARCHITECTURE)
+   A pixel-perfect, high-dignity SaaS layout.
+============================================================ 
+*/
+
+:root {
+  /* Brand Colors */
+  --primary-black: #111111;
+  --accent-blue: #2563eb;
+  --soft-slate: #64748b;
+  --border-light: #e2e8f0;
+  --bg-subtle: #f8fafc;
+
+  /* Symmetrical Spacing */
+  --page-gap: 60px;
+  /* Controls Top, Bottom, and Right spacing */
+  --card-width: 480px;
+
+  /* Typography Weights */
+  --weight-bold: 700;
+  --weight-semi: 600;
+  --weight-reg: 400;
+}
+
+/* ------------------------------------------------------------
+   1. GLOBAL WRAPPER & LAYOUT ENGINE
+   ------------------------------------------------------------ */
+
+.login-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  /* Key: Pushes the login cluster to the right edge */
+  justify-content: flex-end;
+  /* Key: Centers the cluster vertically (Top/Bottom Symmetry) */
+  align-items: center;
+  /* Key: Creates the exact Right Gap to match Top/Bottom */
+  padding-right: var(--page-gap);
+  background: #000;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+/* THE BACKGROUND IMAGE LAYER */
+.login-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  /* Replace with your high-res LoginBg.jpg */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 20%, rgba(0, 0, 0, 0.2) 80%),
+    url('/LoginBg.jpg') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* Text at bottom left */
+  padding: var(--page-gap) 80px;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------
+   2. HERO TYPOGRAPHY (CERTIFICATION TRACKING PLATFORM)
+   ------------------------------------------------------------ */
+
+.login-hero-content {
+  max-width: 600px;
+  z-index: 2;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.login-hero-content h1 {
+  font-size: 56px;
+  font-weight: var(--weight-bold);
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  /* High-dignity tracking */
+  margin-bottom: 20px;
+}
+
+.login-hero-content p {
+  font-size: 18px;
+  font-weight: var(--weight-reg);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  max-width: 450px;
+}
+
+/* ------------------------------------------------------------
+   3. THE RIGHT-SIDE INTERACTIVE CLUSTER
+   ------------------------------------------------------------ */
+
+.login-right {
+  position: relative;
+  z-index: 10;
+  /* 🟢 EXACT width of your white card */
+  margin-right: 1px;
+  /* Symmetrical gap from the right edge */
+  display: flex;
+  flex-direction: column;
+  width: 580px;
+  height: auto;
+  background: transparent;
+}
+
+/* TOP BAR: LOGO AND BACK LINK ALIGNMENT */
+.login-top-bar {
+  position: absolute;
+  top: 50px;
+  /* Match your --page-gap here */
+  left: 60px;
+  right: 60px;
+  /* Symmetrical gap from right edge */
+  display: flex;
+  align-items: center;
+  z-index: 20;
+  pointer-events: none;
+  /* Prevents container from blocking clicks */
+}
+
+.login-brand-flat {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #ffffff;
+}
+
+/* Ensure links inside remain clickable */
+.login-brand-flat,
+.back-home-link {
+  pointer-events: auto;
+}
+
+.brand-text-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name-top {
+  font-size: 20px;
+  font-weight: var(--weight-bold);
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.brand-tag-top {
+  font-size: 11px;
+  font-weight: var(--weight-semi);
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.back-home-link {
+  /* 🟢 Increase this value to push it further right */
+  margin-left: 500px;
+
+
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+
+  /* Ensures it stays perfectly centered with the logo text */
+  display: flex;
+  align-items: center;
+}
+
+.back-home-link:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* ------------------------------------------------------------
+   4. THE LOGIN CARD (WHITE RECTANGLE)
+   ------------------------------------------------------------ */
+
+.login-auth-card {
+  background: #ffffff;
+  padding: 40px 40px;
+  border-radius: 20px;
+  /* Premium softness */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 600px; /* FIXED HEIGHT - Accommodates OTP from the start */
+  overflow: hidden; /* REMOVE SCROLLBARS */
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+.login-main-title {
+  font-size: 34px;
+  font-weight: var(--weight-bold);
+  color: var(--primary-black);
+  margin-bottom: 8px;
+  letter-spacing: -1px;
+}
+
+.login-main-subtitle {
+  font-size: 14px;
+  color: var(--soft-slate);
+  margin-bottom: 24px; /* Increased padding for vertical rhythm */
+}
+
+/* ------------------------------------------------------------
+   5. THE RECTANGLE FORM INPUTS (PRECISE STYLE)
+   ------------------------------------------------------------ */
+
+.login-form label {
+  font-size: 13px;
+  font-weight: var(--weight-semi);
+  color: var(--primary-black);
+  display: block;
+  margin-bottom: 4px; /* 8px system alignment */
+}
+
+.input-field-wrapper {
+  position: relative;
+  margin-bottom: 16px; /* 8px system alignment */
+  width: 100%;
+}
+
+.login-form input:not([type="checkbox"]) {
+  width: 100%;
+  height: 48px; /* Standard premium height - NO COMPRESSION */
+  padding: 0 48px;
+  border: 1.5px solid var(--border-light);
+  border-radius: 10px;
+  background: #ffffff;
+  font-size: 15px;
+  color: var(--primary-black);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.login-form input:focus {
+  border-color: var(--accent-blue);
+  background: #fff;
+  outline: none;
+  /* FOCUS GLOW ENHANCEMENT */
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+/* FORM ICONS */
+.field-icon-left {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  pointer-events: none;
+  transition: color 0.2s;
+}
+
+.input-field-wrapper input:focus+.field-icon-left {
+  color: var(--accent-blue);
+}
+
+.eye-btn-right {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #94a3b8;
+  padding: 4px;
+  transition: color 0.2s;
+}
+
+.eye-btn-right:hover {
+  color: var(--primary-black);
+}
+
+/* ------------------------------------------------------------
+   6. SECURITY & OPTIONS (CAPTCHA + ADMIN)
+   ------------------------------------------------------------ */
+
+.security-gate {
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.security-gate label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #94a3b8;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.captcha-wrapper {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.captcha-display-box {
+  flex: 0.8;
+  height: 44px;
+  background: rgba(15, 23, 42, 0.05);
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.captcha-text-visual {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #1e293b;
+  letter-spacing: 3px;
+  user-select: none;
+  font-style: italic;
+  opacity: 0.8;
+  background: linear-gradient(45deg, transparent 45%, #ddd 50%, transparent 55%);
+  background-size: 10px 10px;
+}
+
+.captcha-refresh-btn {
+  color: #94a3b8;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  opacity: 0.6;
+}
+
+.captcha-refresh-btn:hover {
+  color: #111;
+  opacity: 1;
+  transform: rotate(180deg);
+}
+
+.captcha-input-field {
+  flex: 1.2;
+  height: 44px !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  margin-bottom: 0 !important;
+  padding: 0 15px !important;
+  font-size: 14px;
+  font-weight: 600;
+  background: #fdfdfd !important;
+}
+
+.captcha-input-field:focus {
+  border-color: var(--accent-blue) !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+}
+
+.security-note {
+  font-size: 10px;
+  font-weight: 500;
+  color: #cbd5e1;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ------------------------------------------------------------
+   7. OTP SLOT RESERVATION (ZERO LAYOUT SHIFT)
+   ------------------------------------------------------------ */
+
+.otp-slot {
+  height: 180px; /* Increased to properly fit OTP + resend */
+  margin-top: 12px;
+  transition: all 0.25s ease-in-out;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Proper spacing inside */
+}
+
+.otp-slot.hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transform: translateY(8px);
+}
+
+.otp-slot.visible {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.admin-verification-area {
+  width: 100%;
+}
+
+.verification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.otp-expiry-timer {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6366f1;
+  background: rgba(99, 102, 241, 0.1);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.otp-expired-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ef4444;
+  text-transform: uppercase;
+}
+
+.otp-action-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.resend-otp-btn {
+  background: transparent;
+  border: none;
+  color: #6366f1;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 4px 0;
+}
+
+.resend-otp-btn:hover:not(:disabled) {
+  text-decoration: underline;
+  color: #4f46e5;
+}
+
+.resend-otp-btn:disabled {
+  color: #94a3b8;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* ------------------------------------------------------------
+   8. FOOTER OPTIONS & BUTTONS (FIXED POSITION)
+   ------------------------------------------------------------ */
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin: 16px 0;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: black;
+  cursor: pointer;
+}
+
+.forgot {
+  font-weight: var(--weight-semi);
+  color: var(--primary-black);
+  cursor: pointer;
+}
+
+.primary-login-btn {
+  width: 100%;
+  height: 52px;
+  min-height: 52px;
+  background: var(--primary-black);
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: var(--weight-semi);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.primary-login-btn:hover {
+  background: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.primary-login-btn:disabled {
+  background: #cbd5e1;
+  color: #94a3b8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.login-footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--soft-slate);
+}
+
+.login-footer a {
+  color: var(--primary-black);
+  font-weight: var(--weight-bold);
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------------------
+   9. ANIMATIONS & RESPONSIVENESS
+   ------------------------------------------------------------ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+  .login-wrapper { padding-right: 0; justify-content: center; }
+  .login-left { display: none; }
+  .login-right { margin-right: 0; width: 90%; max-width: 440px; }
+  .login-auth-card { height: auto; min-height: 520px; overflow: visible; padding: 30px; }
+  .login-top-bar { color: #111; }
+  .login-brand-flat, .back-home-link { color: #111; }
+}

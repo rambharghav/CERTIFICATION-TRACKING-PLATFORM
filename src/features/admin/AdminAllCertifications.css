@@ -1,0 +1,221 @@
+.admin-certifications-page {
+  padding: 40px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+
+  h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.025em;
+    margin-bottom: 8px;
+  }
+
+  .sub-text {
+    color: #64748b;
+    margin-bottom: 32px;
+    font-size: 16px;
+  }
+
+  /* SEARCH BAR */
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 0 24px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+    height: 56px;
+    transition: all 0.2s;
+
+    &:focus-within {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    }
+
+    input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 15px;
+      color: #0f172a;
+      background: transparent;
+
+      &::placeholder {
+        color: #94a3b8;
+      }
+    }
+  }
+
+  /* GRID */
+  .cert-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  /* CARD */
+  .cert-card {
+    background: white;
+    padding: 32px;
+    border-radius: 24px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f1f5f9;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+
+    h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+
+    .issuer {
+      color: #6366f1;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .student-name {
+      font-size: 14px;
+      color: #64748b;
+      
+      strong {
+        color: #0f172a;
+        font-weight: 600;
+      }
+    }
+  }
+
+  /* STATUS BADGE */
+  .status {
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    &.active {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    &.expiring {
+      background: #fef9c3;
+      color: #a16207;
+    }
+
+    &.expired {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+  }
+
+  /* DETAILS SECTION */
+  .card-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 16px;
+    margin-bottom: 24px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 13px;
+      color: #64748b;
+
+      strong {
+        color: #0f172a;
+        font-size: 14px;
+      }
+    }
+  }
+
+  /* REMARKS BOX */
+  textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    resize: vertical;
+
+    &:focus {
+      border-color: #6366f1;
+    }
+  }
+
+  /* ACTIONS */
+  .card-actions-admin {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+
+    button {
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .admin-view-btn {
+      background: #f1f5f9;
+      color: #0038ba;
+      border: none;
+
+      &:hover {
+        background: #e2e8f0;
+      }
+    }
+
+    .admin-renew-btn {
+      background: #6366f1;
+      color: white;
+      border: none;
+
+      &:hover {
+        background: #4f46e5;
+      }
+    }
+
+    .admin-delete-btn {
+      background: #fee2e2;
+      color: #b91c1c;
+      border: none;
+
+      &:hover {
+        background: #fecaca;
+      }
+    }
+  }
+}

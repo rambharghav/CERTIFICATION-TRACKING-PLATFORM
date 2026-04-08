@@ -1,0 +1,5 @@
+"The login works, but the data is not populating. Students are missing 'Reports', and Admins see no data at all. Please:
+Check SecurityConfig.java: Ensure all /api/** endpoints are permitted for both STUDENT and ADMIN roles where appropriate. Specifically, check if the /api/reports and /api/admin/** endpoints are blocked.
+Verify Admin Logic: In the CertificationService, ensure that when an Admin calls getAll(), it doesn't try to filter by userId. Admnis should see the full list from the database.
+Fix Axios Interceptor: Check api.js in the React frontend. It might be attaching the token to standard API calls but missing it for the Reports or Admin specific calls.
+CORS Headers: Ensure the backend's CorsConfiguration allows all methods (GET, POST, etc.) and specifically allows the Authorization header to be read by the frontend."
